@@ -2,6 +2,8 @@
 
 A word chaining game for word lovers.
 
+The name comes from verbum, the Latin noun meaning "word," and -fex, the Latin suffix related to building. (Cf. pontifex, artifex, etc.)
+
 # How to play
 
 The game starts with a word.
