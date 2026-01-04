@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { isValidWord, getComputerWord } from "../utils/wordUtils";
+import { isValidWord, getValidWord, getRandomLetter } from "../utils/wordUtils";
 import InputBox from "./InputBox";
 import Timer from "./Timer";
 import GameOver from "./GameOver";
@@ -9,7 +9,7 @@ const TURN_TIME = 10;
 const REQUIRED_WORD_LENGTH = 5;
 
 export default function Game() {
-  const [currentWord, setCurrentWord] = useState(getValidWord());
+  const [currentWord, setCurrentWord] = useState(getValidWord(getRandomLetter(), REQUIRED_WORD_LENGTH));
   const [chainLength, setChainLength] = useState(1);
   const [timeLeft, setTimeLeft] = useState(TURN_TIME);
   const [status, setStatus] = useState<GameStatus>("playing");

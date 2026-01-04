@@ -20,10 +20,10 @@ for (const file of fs.readdirSync(dataDir)) {
 
 const contents = `
 // AUTO-GENERATED — DO NOT EDIT
-export const validWords = new Set([
+export const validWordList = new Set([
 ${[...words].sort().map(w => `  "${w}",`).join("\n")}
 ]);
 `;
 
 fs.writeFileSync(outputFile, contents);
-console.log("validWords generated:", words.size);
+console.log("validWordList words generated:", words.size);

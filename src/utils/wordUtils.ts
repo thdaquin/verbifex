@@ -1,4 +1,4 @@
-import { validWordList } from "../data/validWords"
+import { validWordList } from "../data/validWordList"
 
 export function isValidWord(
   word: string,
@@ -19,8 +19,14 @@ export function getValidWord(
   requiredLength: number,
 ): string {
   const validWordChoices = Array.from(validWordList).filter((w) =>
-    w.startsWith(requiredLetter) && w.length == requiredLength
+    w.toLowerCase().startsWith(requiredLetter.toLowerCase()) && w.length == requiredLength
   );
 
   return validWordChoices[Math.floor(Math.random() * validWordChoices.length)];
+}
+
+export function getRandomLetter(): string {
+  const letters = "abcdefghijklmnopqrstuvwxyz";
+  const randomIndex = Math.floor(Math.random() * letters.length);
+  return letters[randomIndex];
 }
