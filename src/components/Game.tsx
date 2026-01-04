@@ -9,7 +9,7 @@ const TURN_TIME = 10;
 const REQUIRED_WORD_LENGTH = 5;
 
 export default function Game() {
-  const [currentWord, setCurrentWord] = useState("start");
+  const [currentWord, setCurrentWord] = useState(getValidWord());
   const [chainLength, setChainLength] = useState(1);
   const [timeLeft, setTimeLeft] = useState(TURN_TIME);
   const [status, setStatus] = useState<GameStatus>("playing");
@@ -17,7 +17,6 @@ export default function Game() {
 
   const lastLetter = currentWord.slice(-1);
 
-  // Countdown timer
   useEffect(() => {
     if (status !== "playing") return;
 
@@ -50,9 +49,8 @@ export default function Game() {
     setError(null);
     applyWord(word);
 
-    // Computer responds instantly
-    const computerWord = getComputerWord(word.slice(-1), REQUIRED_WORD_LENGTH);
-    applyWord(computerWord);
+    const validWord = getValidWord(word.slice(-1), REQUIRED_WORD_LENGTH);
+    applyWord(validWord);
   }
 
   if (status === "gameover") {

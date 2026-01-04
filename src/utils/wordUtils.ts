@@ -14,7 +14,7 @@ export function isValidWord(
   return null;
 }
 
-export function getComputerWord(
+export function getValidWord(
   requiredLetter: string,
   requiredLength: number,
 ): string {
