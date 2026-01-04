@@ -1,3 +1,6 @@
+# Ignore all JSON files in rawData
+src/data/rawData/
+
 # Logs
 logs
 *.log

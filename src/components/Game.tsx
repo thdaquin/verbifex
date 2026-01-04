@@ -5,7 +5,7 @@ import Timer from "./Timer";
 import GameOver from "./GameOver";
 import type { GameStatus } from "../types/game";
 
-const TURN_TIME = 10;
+const TURN_TIME = 15;
 const REQUIRED_WORD_LENGTH = 5;
 
 export default function Game() {
