@@ -4,7 +4,6 @@ import InputBox from "./InputBox";
 import Timer from "./Timer";
 import GameOver from "./GameOver";
 import type { GameStatus } from "../types/game";
-import wordList from "../utils/wordList";
 
 const TURN_TIME = 10;
 const REQUIRED_WORD_LENGTH = 5;
@@ -41,7 +40,7 @@ export default function Game() {
   }
 
   function handlePlayerSubmit(word: string) {
-    const validationError = isValidWord(word, lastLetter, REQUIRED_WORD_LENGTH, wordList);
+    const validationError = isValidWord(word, lastLetter, REQUIRED_WORD_LENGTH);
 
     if (validationError) {
       setError(validationError);
@@ -52,7 +51,7 @@ export default function Game() {
     applyWord(word);
 
     // Computer responds instantly
-    const computerWord = getComputerWord(word.slice(-1), REQUIRED_WORD_LENGTH, wordList);
+    const computerWord = getComputerWord(word.slice(-1), REQUIRED_WORD_LENGTH);
     applyWord(computerWord);
   }
 

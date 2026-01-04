@@ -5,8 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+
+    "build:words": "node scripts/buildValidWordList.js",
+    "prebuild": "npm run build:words",
     "build": "tsc -b && vite build",
+
     "lint": "eslint .",
+
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
