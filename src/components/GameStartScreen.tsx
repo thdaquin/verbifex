@@ -36,7 +36,7 @@ export default function GameStartScreen({ onStart }: GameStartScreenProps) {
           <input
             type="number"
             value={wordLength}
-            onChange={(e) => setWordLength(Math.max(3, Math.min(10, parseInt(e.target.value) || 5)))}
+            onChange={(e) => setWordLength(Math.max(3, Math.min(10, parseInt(e.target.value) || 4)))}
             min="3"
             max="10"
           />
