@@ -17,7 +17,7 @@ Play it on github pages! https://thdaquin.github.io/verbifex/
 
 The game starts with a word.
 
-Words must be valid English words and meet the game’s requirements (default is 5 characters).
+Words must be valid English words and meet the game’s requirements (default is 4 characters).
 
 The game continues until player cannot provide a valid word in the given time (default is 15 seconds).
 
