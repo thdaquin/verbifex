@@ -4,43 +4,60 @@ interface InputBoxProps {
   onSubmit: (word: string) => void;
   disabled: boolean;
   error: string | null;
+  wordLength: number;
 }
 
-export default function InputBox({ onSubmit, disabled, error }: InputBoxProps) {
+export default function InputBox({ onSubmit, disabled, error, wordLength }: InputBoxProps) {
   const [input, setInput] = useState("");
+  const [localError, setLocalError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => { // prevent auto-focus on mount (mobile devices)
+  useEffect(() => {
+    setLocalError(error);
+  }, [error]);
+
+  useEffect(() => {
     if (inputRef.current && !disabled) {
-      inputRef.current.focus();
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
     }
   }, [disabled]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase();
     setInput(value);
     
-    if (value.trim().length === 5) { // small delay: ensure UI updates before submitting
+    if (localError) {
+      setLocalError(null);
+    }
+    
+    if (value.trim().length === wordLength) {
       setTimeout(() => {
-        onSubmit(value.trim().toLowerCase());
+        onSubmit(value.trim());
         setInput("");
+        setTimeout(() => inputRef.current?.focus(), 100);
       }, 100);
     }
   };
 
   return (
-    <div>
+    <div className="input-wrapper">
       <input
         ref={inputRef}
         value={input}
         onChange={handleChange}
         disabled={disabled}
-        maxLength={5}
-        style={{
-          fontSize: '16px', // prevents zoom (moble)
-        }}
+        maxLength={wordLength}
+        placeholder={`${wordLength} letters...`}
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck="false"
       />
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <div className="error-space">
+        {localError && <p className="error-message">{localError}</p>}
+      </div>
     </div>
   );
 }

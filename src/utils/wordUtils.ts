@@ -8,7 +8,7 @@ export function isValidWord(
   if (!(validWordList.has(word)))
     return "Not a valid English word";
   if (word.length !== requiredLength) 
-    return "Word must be exactly 5 letters long";
+    return `Word must be exactly ${requiredLength} letters long`;
   if (word[0] !== requiredLetter)
     return `Word must start with "${requiredLetter}"`;
   return null;
@@ -21,7 +21,6 @@ export function getValidWord(
   const validWordChoices = Array.from(validWordList).filter((w) =>
     w.toLowerCase().startsWith(requiredLetter.toLowerCase()) && w.length == requiredLength
   );
-
   return validWordChoices[Math.floor(Math.random() * validWordChoices.length)];
 }
 
