@@ -6,7 +6,7 @@ import GameScreen from "./components/GameScreen";
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [turnTime, setTurnTime] = useState(15);
-  const [wordLength, setWordLength] = useState(5);
+  const [wordLength, setWordLength] = useState(4);
 
   const handleStart = (time: number, length: number) => {
     setTurnTime(time);
