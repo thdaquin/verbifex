@@ -4,7 +4,7 @@ import path from "path";
 const dataDir = path.resolve("src/data/rawData");
 const outputFile = path.resolve("src/data/validWordList.ts");
 
-const words = new Set(); // <-- remove <string>
+const words = new Set();
 
 for (const file of fs.readdirSync(dataDir)) {
   if (!file.endsWith(".json")) continue;
@@ -13,8 +13,10 @@ for (const file of fs.readdirSync(dataDir)) {
     fs.readFileSync(path.join(dataDir, file), "utf8")
   );
 
-  for (const word of Object.keys(json)) {
-    words.add(word.toLowerCase());
+  if (typeof json === "object" && json !== null) {
+    for (const key of Object.keys(json)) {
+      words.add(key.toLowerCase());
+    }
   }
 }
 
