@@ -6,7 +6,7 @@ interface GameStartScreenProps {
 
 export default function GameStartScreen({ onStart }: GameStartScreenProps) {
   const [turnTime, setTurnTime] = useState(15);
-  const [wordLength, setWordLength] = useState(5);
+  const [wordLength, setWordLength] = useState(4);
 
   const handleStart = () => {
     onStart(turnTime, wordLength);
