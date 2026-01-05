@@ -2,8 +2,7 @@
 
 A word chaining game for word lovers.
 
-The name comes from verbum, the Latin noun meaning "word," and -fex, the Latin suffix related to building. (Cf. pontifex, artifex, etc.)
-
+Play it on github pages! https://thdaquin.github.io/verbifex/
 
 <p align="center">
   <img
@@ -11,7 +10,7 @@ The name comes from verbum, the Latin noun meaning "word," and -fex, the Latin s
     width="600"
   />
   <br />
-  <em>A game with 4 letter words</em>
+  <em>A game using 4 letter words with a 15 second limit</em>
 </p>
 
 # How to play
@@ -28,4 +27,8 @@ Validates words against an English word list.
 
 Includes a computer opponent that generates words automatically.
 
-Aiming to support customizable word length and time allotment, as well as multiplay.
+Aiming to ensure the computer uses more common words, include a definition hover-over, better stylings for the chain, and even support multiplay eventually.
+
+# What's with the name?
+
+The name comes from verbum, the Latin noun meaning "word," and -fex, the Latin suffix related to building. (Cf. pontifex, artifex, etc.)
