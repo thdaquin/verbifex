@@ -16,12 +16,6 @@ export default function InputBox({ onSubmit, disabled, error }: InputBoxProps) {
     }
   }, [disabled]);
 
-  const handleSubmit = () => {
-    if (!input.trim()) return;
-    onSubmit(input.trim().toLowerCase());
-    setInput("");
-  };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInput(value);
